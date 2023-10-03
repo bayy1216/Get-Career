@@ -14,21 +14,7 @@ class CareerViewModel(
     private val careerRepository: CareerRepository
 ): ViewModel() {
     var careerList by mutableStateOf<List<CareerModel>>(
-        listOf(
-            CareerModel("12","dsa","sada","dasdsa"),
-            CareerModel("12","dsa","sada","dasdsa"),
-
-            CareerModel("12","dsa","sada","dasdsa"),
-            CareerModel("12","dsa","sada","dasdsa"),
-
-            CareerModel("12","dsa","sada","dasdsa"),
-            CareerModel("12","dsa","sada","dasdsa"),
-
-            CareerModel("12","dsa","sada","dasdsa"),
-            CareerModel("12","dsa","sada","dasdsa"),
-
-        )
-
+        listOf()
     )
     init {
         Log.d("tt","grtCareers!!")
