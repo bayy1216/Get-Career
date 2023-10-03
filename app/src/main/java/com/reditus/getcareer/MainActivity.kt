@@ -19,25 +19,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.reditus.getcareer.presentation.view.career.CareerScreen
 import com.reditus.getcareer.presentation.viewmodel.career.CareerViewModel
-import com.reditus.getcareer.common.viewmodelFactory.MainViewModelFactory
 import com.reditus.getcareer.presentation.theme.GetCareerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val viewModel = ViewModelProvider(
-                this,
-                MainViewModelFactory())[CareerViewModel::class.java]
             GetCareerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(viewModel)
+                    Greeting()
                 }
             }
         }
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting(viewModel : CareerViewModel) {
+fun Greeting(viewModel : CareerViewModel = viewModel()) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -72,6 +72,7 @@ fun Greeting(viewModel : CareerViewModel) {
 @Composable
 fun GreetingPreview() {
     GetCareerTheme {
+        Text(text = "Hello World!")
         //Greeting()
     }
 }
