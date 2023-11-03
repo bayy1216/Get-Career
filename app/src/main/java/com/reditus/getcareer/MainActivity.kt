@@ -51,7 +51,7 @@ fun Greeting(viewModel : CareerViewModel = viewModel()) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("네카라쿠배가즈아") },
+                title = { Text("GetCareer") },
                 actions = {
                     Icon(
                         imageVector = Icons.Filled.Favorite,
